@@ -1,13 +1,7 @@
 function solution(arr, divisor) {
-    const a = [];
     
     
-
-    arr.sort((a,b)=>a-b).forEach((num)=>{
-        
-        if(num%divisor == 0){
-            a.push(num);
-        }
-    })
+    const a = arr.sort((a,b)=>a-b).filter((num)=>num%divisor== 0)
+    console.log(a)
     return a.length ? a : [-1];
 }
