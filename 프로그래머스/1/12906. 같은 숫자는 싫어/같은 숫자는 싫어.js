@@ -1,10 +1,10 @@
 function solution(arr)
 {
-
-    let answer = arr.filter((v,i)=>v!==arr[i-1])
-    
-    
-    // let answer = arr.filter( (v,i) => v !== arr[i-1]);
-    
-    return answer;
+    const answer = [];
+    for(let i=0; i<arr.length;i++){
+        
+    if(arr[i-1]!==arr[i])
+        answer.push(arr[i]);
+    }
+    return answer;    
 }
