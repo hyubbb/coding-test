@@ -1,12 +1,20 @@
 function solution(phone_book) {
-  // 전화번호를 사전순으로 정렬
-  phone_book.sort();
+  const hash = new Map();
 
-  // 인접한 두 전화번호만 비교하면 됨
-  for (let i = 0; i < phone_book.length - 1; i++) {
-    if (phone_book[i + 1].startsWith(phone_book[i])) {
-      return false;
+  // 모든 번호를 해시에 저장
+  for (const num of phone_book) {
+    hash.set(num, true);
+  }
+
+  // 각 번호의 접두어를 하나씩 만들어 해시에 있는지 확인
+  for (const num of phone_book) {
+    for (let i = 1; i < num.length; i++) {
+      const prefix = num.slice(0, i);
+      if (hash.has(prefix)) {
+        return false;
+      }
     }
   }
+
   return true;
 }
