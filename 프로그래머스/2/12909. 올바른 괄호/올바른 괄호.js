@@ -1,15 +1,13 @@
-
 function solution(s) {
-  let stack = [];
-  for (let i = 0; i < s.length; i++) {
-    if (s[i] === "(") {
-      stack.push(s[i]);
-    } else {
-      if (stack.length === 0) {
-        return false;
-      }
-      stack.pop();
+    const answer=[];
+    for(let i=0; i<s.length; i++){
+        if(s[i]=="("){
+            answer.push(s[i]);
+        }else{
+            if(answer.length == 0) return false;
+            answer.pop();
+        }
     }
-  }
-  return stack.length === 0;
+    console.log(answer)
+    return answer.length == 0 ? true : false
 }
