@@ -1,20 +1,20 @@
 function solution(progresses, speeds) {
   const answer = [];
   const days = progresses.map((p, i) => Math.ceil((100 - p) / speeds[i]));
+  days.push(Infinity); // 마지막 처리 유도용 가짜값
 
-  let current = days[0];
-  let count = 1;
+  let maxDay = days[0];
+  let count = 0;
 
-  for (let i = 1; i < days.length; i++) {
-    if (days[i] <= current) {
+  for (let i = 0; i < days.length; i++) {
+    if (days[i] <= maxDay) {
       count++;
     } else {
       answer.push(count);
-      current = days[i];
+      maxDay = days[i];
       count = 1;
     }
   }
 
-  answer.push(count); // 마지막 그룹 추가
   return answer;
 }
