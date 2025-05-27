@@ -9,7 +9,9 @@ function solution(tickets) {
 
     for (let i = 0; i < tickets.length; i++) {
       const [from, to] = ticketsData[i];
-      if (visitedDfs[i]) continue;
+      
+        if (visitedDfs[i]) continue;
+        
       if (from === start && !visitedDfs[i]) {
         resultDfs.push(to);
         visitedDfs[i] = true;
